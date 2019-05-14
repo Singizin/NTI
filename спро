@@ -1,0 +1,41 @@
+'''def readfile():
+    f = open('data_2.txt','r')
+    n,m,v,u = f.readline().split()
+    n =int(n)
+    m =int(m)
+    v = int(v)
+    u = int(u)
+    most = []
+    for i in range(m):
+        most.append(f.readline().split())
+        most[i] =list(map (int,most[i]))
+    zatopleno = int(f.readline())
+    zatoplennie = f.readline().split()
+    zatoplennie = list(map(int, zatoplennie))
+    print(n,m,v,u)
+    print(most)
+    print(zatopleno,zatoplennie)
+
+    return n,m,v,u,most,zatopleno,zatoplennie
+'''
+def DFS(where,most):
+    print('проверяем остров',str(where))
+    global visited
+    global zatoplennie
+    if where not in visited and where not in zatoplennie:
+        visited.append(where)
+        for i in most[where-1]:
+            print(where, ' - ', i)
+            print(visited)
+            DFS(i, most)
+
+visited = []
+#n,m,v,u,most,zatopleno,zatoplennie = readfile()
+n,m,v,u = 4,5,1,4
+most = [{2,3},{1,3},{1,2,4},{2,3}]
+zatopleno = 1
+zatoplennie ={2}
+
+DFS(v,most)
+
+print('yes' if u in visited else 'no')
