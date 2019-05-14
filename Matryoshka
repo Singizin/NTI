@@ -1,0 +1,9 @@
+def matr(N,O):
+    print('{}┌{}┐'.format(' '*int((O - N)//2) ,'-' * N)) #218,191
+    if N == 1:
+        print('{}└{}┘'.format(' '*int((O - N)//2) ,'-' * N))  # 192,237
+        return
+    matr(N-2,O)
+    print('{}└{}┘'.format(' '*int((O - N)//2) ,'-' * N)) #192,237
+
+matr(15,15)
